@@ -1,0 +1,1 @@
+# MeuNovoAmigo1.0
