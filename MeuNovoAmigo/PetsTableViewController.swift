@@ -14,17 +14,15 @@ class PetsTableViewController: UITableViewController {
     var pets: [Pet] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.rowHeight = 550
-//        var pet: Pet
-//        pet = Pet(species:"cachorro", description:"Animal muito dócil", image: #imageLiteral(resourceName: "dog_"), owner: (Auth.auth().currentUser?.uid)!)
-//                pets.append(pet)
+//        self.tableView.rowHeight = 550
         self.getAllPets()
+        
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
     }
 
     // MARK: - Table view data source
@@ -36,7 +34,6 @@ class PetsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-//        self.tableView.reloadData()
         return pets.count
     }
 
@@ -47,12 +44,28 @@ class PetsTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "petCell", for: indexPath) as! PetsTableViewCell
         
-        cell.petImage.image = #imageLiteral(resourceName: "mna")
+//        cell.petImage.image = #imageLiteral(resourceName: "mna")
         cell.petDescription.text = pet.species + " " + pet.description
         cell.address.text = "Rua Costa do Sol 980"
         cell.phoneNumber.text = "(16) 997198406"
         cell.userPhoto.image = #imageLiteral(resourceName: "perfil")
         cell.username.text = "Felipe Okino"
+//        print("URLLLLLLLLLL", pet.image)
+
+        if let petImageUrl = pet.image {
+            let url = NSURL(string: petImageUrl)
+            let request = URLRequest(url: (url! as NSURL) as URL)
+            URLSession.shared.dataTask(with: request) { (data, response, error) in
+                if error != nil {
+                    print(error!)
+
+                    return
+                }
+                DispatchQueue.main.async {
+                    cell.petImage.image = UIImage(data: data!)
+                }
+            }.resume()
+        }
         return cell
     }
     
@@ -97,14 +110,14 @@ class PetsTableViewController: UITableViewController {
 
     
      // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-//             Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-//             Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }
-    }
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+////             Delete the row from the data source
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//        } else if editingStyle == .insert {
+////             Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+//        }
+//    }
  
 
     /*

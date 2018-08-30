@@ -18,6 +18,9 @@ class ResetViewController: UIViewController {
                 if let error = error {
                     print(error.localizedDescription)
                 } else {
+                    let alert = UIAlertController(title: "Redefinir senha", message: "Um link foi enviado ao seu email para redefinir a sua senha", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true)
                     print("Send Message to your mailbox")
                 }
                 

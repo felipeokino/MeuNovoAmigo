@@ -13,17 +13,13 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var cpf: UITextField!
-    @IBOutlet weak var phoneNumber: UITextField!
-    @IBOutlet weak var street: UITextField!
-    @IBOutlet weak var number: UITextField!
-    @IBOutlet weak var postalCode: UITextField!
     @IBOutlet weak var city: UITextField!
     @IBOutlet weak var state: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBAction func tapSignUp(_ sender: Any) {
-        if let name = self.fullName.text, let cpf = self.cpf.text,let phoneNumber = self.phoneNumber.text, let street = self.street.text,let number = self.number.text, let postalCode = self.postalCode.text,let city = self.city.text, let state = self.state.text,let email = self.email.text, let password = self.password.text {
-            let newUser = User(name: name, cpf: cpf, postalCode: postalCode, street: street,number: number,state: state,phoneNumber: phoneNumber,city: city,email: email);
+        if let name = self.fullName.text, let cpf = self.cpf.text,let city = self.city.text, let state = self.state.text,let email = self.email.text, let password = self.password.text {
+            let newUser = User(name: name, cpf: cpf,state: state,city: city,email: email);
             self.registerUser(newUser: newUser, password: password)
         }
     }
@@ -45,10 +41,6 @@ class SignUpViewController: UIViewController {
         ref.child("users").child(newUser.cpf).setValue([
             "name":newUser.name,
             "cpf": newUser.cpf,
-            "phoneNumber": newUser.phoneNumber,
-            "street": newUser.street,
-            "number": newUser.number,
-            "postalCode": newUser.postalCode,
             "city": newUser.city,
             "state": newUser.state,
             "email": newUser.email
