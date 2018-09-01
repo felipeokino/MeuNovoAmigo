@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Kingfisher
 
 class PetsTableViewController: UITableViewController {
 
@@ -37,42 +38,29 @@ class PetsTableViewController: UITableViewController {
         return pets.count
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        tableView.separatorInsetReference = .fromAutomaticInsets
         
         let pet: Pet = pets[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "petCell", for: indexPath) as! PetsTableViewCell
         
-//        cell.petImage.image = #imageLiteral(resourceName: "mna")
+        cell.petImage.image = UIImage(named: "load")
         cell.petDescription.text = pet.species + " " + pet.description
         cell.address.text = "Rua Costa do Sol 980"
         cell.phoneNumber.text = "(16) 997198406"
         cell.userPhoto.image = #imageLiteral(resourceName: "perfil")
         cell.username.text = "Felipe Okino"
-//        print("URLLLLLLLLLL", pet.image)
 
         if let petImageUrl = pet.image {
-            let url = NSURL(string: petImageUrl)
-            let request = URLRequest(url: (url! as NSURL) as URL)
-            URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if error != nil {
-                    print(error!)
-
-                    return
-                }
-                DispatchQueue.main.async {
-                    cell.petImage.image = UIImage(data: data!)
-                }
-            }.resume()
+            let url = URL(string: petImageUrl)
+            cell.petImage.kf.setImage(with: url)
         }
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        self.tableView.deselectRow(at: indexPath, animated: true)
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
