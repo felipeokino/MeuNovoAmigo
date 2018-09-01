@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170465EB2138ABAF00DC9335 /* FirebaseFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170465EA2138ABAF00DC9335 /* FirebaseFunctions.swift */; };
+		170465ED2138B71B00DC9335 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170465EC2138B71B00DC9335 /* ProfileViewController.swift */; };
 		172935D92134BCC40071D946 /* PetsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172935D82134BCC40071D946 /* PetsTableViewController.swift */; };
 		172935E52134BDE00071D946 /* PetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172935E02134BDDF0071D946 /* PetsTableViewCell.swift */; };
 		172935E62134BDE00071D946 /* GetImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172935E12134BDDF0071D946 /* GetImageViewController.swift */; };
@@ -21,13 +23,18 @@
 		1779551A211D3E9C0036B3F9 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17795519211D3E9C0036B3F9 /* ResetViewController.swift */; };
 		1779551D211E0CC40036B3F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779551C211E0CC40036B3F9 /* User.swift */; };
 		1779551F211E10BC0036B3F9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779551E211E10BC0036B3F9 /* SignUpViewController.swift */; };
+		17F3CF8C2139F74A003D84B6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3CF8B2139F74A003D84B6 /* Message.swift */; };
+		17F3CF8E2139F92F003D84B6 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3CF8D2139F92F003D84B6 /* ChatTableViewController.swift */; };
+		17F3CF952139FA57003D84B6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3CF942139FA57003D84B6 /* ChatTableViewCell.swift */; };
 		5FA142A889024DDCED736B25 /* Pods_MeuNovoAmigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062D4AE00EB4D6847AF26B3E /* Pods_MeuNovoAmigo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		062D4AE00EB4D6847AF26B3E /* Pods_MeuNovoAmigo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeuNovoAmigo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		134F07B2465673368B62119E /* Pods-MeuNovoAmigo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuNovoAmigo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeuNovoAmigo/Pods-MeuNovoAmigo.debug.xcconfig"; sourceTree = "<group>"; };
-		172935D82134BCC40071D946 /* PetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PetsTableViewController.swift; path = ../PetsTableViewController.swift; sourceTree = "<group>"; };
+		170465EA2138ABAF00DC9335 /* FirebaseFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseFunctions.swift; sourceTree = "<group>"; };
+		170465EC2138B71B00DC9335 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		172935D82134BCC40071D946 /* PetsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsTableViewController.swift; sourceTree = "<group>"; };
 		172935E02134BDDF0071D946 /* PetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PetsTableViewCell.swift; sourceTree = "<group>"; };
 		172935E12134BDDF0071D946 /* GetImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetImageViewController.swift; sourceTree = "<group>"; };
 		172935E82134C0E90071D946 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +50,9 @@
 		17795519211D3E9C0036B3F9 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		1779551C211E0CC40036B3F9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1779551E211E10BC0036B3F9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		17F3CF8B2139F74A003D84B6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		17F3CF8D2139F92F003D84B6 /* ChatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
+		17F3CF942139FA57003D84B6 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		B12B765015FD485479D66F1D /* Pods-MeuNovoAmigo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuNovoAmigo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuNovoAmigo/Pods-MeuNovoAmigo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		170465E92138AB8800DC9335 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				170465EA2138ABAF00DC9335 /* FirebaseFunctions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		173226D7211741BD00BCA075 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +97,7 @@
 		173226E2211741BD00BCA075 /* MeuNovoAmigo */ = {
 			isa = PBXGroup;
 			children = (
+				170465E92138AB8800DC9335 /* Utils */,
 				172935E92134C0E90071D946 /* LaunchScreen.storyboard */,
 				172935E82134C0E90071D946 /* Main.storyboard */,
 				1779551B211E0B850036B3F9 /* Models */,
@@ -94,13 +113,12 @@
 		17795516211D34920036B3F9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				172935E12134BDDF0071D946 /* GetImageViewController.swift */,
-				172935E02134BDDF0071D946 /* PetsTableViewCell.swift */,
-				172935EC2134DB8A0071D946 /* ViewController.swift */,
-				172935D82134BCC40071D946 /* PetsTableViewController.swift */,
+				17F3CF932139F997003D84B6 /* MessagesList */,
+				17F3CF922139F986003D84B6 /* UserViews */,
+				17F3CF912139F95F003D84B6 /* InitialPages */,
+				17F3CF902139F951003D84B6 /* PetsCreate */,
+				17F3CF8F2139F93D003D84B6 /* PetsList */,
 				17795517211D34B40036B3F9 /* MainViewController.swift */,
-				17795519211D3E9C0036B3F9 /* ResetViewController.swift */,
-				1779551E211E10BC0036B3F9 /* SignUpViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -110,8 +128,53 @@
 			children = (
 				1779551C211E0CC40036B3F9 /* User.swift */,
 				172935EE2134DBF10071D946 /* Pet.swift */,
+				17F3CF8B2139F74A003D84B6 /* Message.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		17F3CF8F2139F93D003D84B6 /* PetsList */ = {
+			isa = PBXGroup;
+			children = (
+				172935E02134BDDF0071D946 /* PetsTableViewCell.swift */,
+				172935D82134BCC40071D946 /* PetsTableViewController.swift */,
+			);
+			path = PetsList;
+			sourceTree = "<group>";
+		};
+		17F3CF902139F951003D84B6 /* PetsCreate */ = {
+			isa = PBXGroup;
+			children = (
+				172935E12134BDDF0071D946 /* GetImageViewController.swift */,
+			);
+			path = PetsCreate;
+			sourceTree = "<group>";
+		};
+		17F3CF912139F95F003D84B6 /* InitialPages */ = {
+			isa = PBXGroup;
+			children = (
+				172935EC2134DB8A0071D946 /* ViewController.swift */,
+				17795519211D3E9C0036B3F9 /* ResetViewController.swift */,
+				1779551E211E10BC0036B3F9 /* SignUpViewController.swift */,
+			);
+			path = InitialPages;
+			sourceTree = "<group>";
+		};
+		17F3CF922139F986003D84B6 /* UserViews */ = {
+			isa = PBXGroup;
+			children = (
+				170465EC2138B71B00DC9335 /* ProfileViewController.swift */,
+			);
+			path = UserViews;
+			sourceTree = "<group>";
+		};
+		17F3CF932139F997003D84B6 /* MessagesList */ = {
+			isa = PBXGroup;
+			children = (
+				17F3CF8D2139F92F003D84B6 /* ChatTableViewController.swift */,
+				17F3CF942139FA57003D84B6 /* ChatTableViewCell.swift */,
+			);
+			path = MessagesList;
 			sourceTree = "<group>";
 		};
 		6B41E156F21D66BD76333BB3 /* Pods */ = {
@@ -210,6 +273,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MeuNovoAmigo/Pods-MeuNovoAmigo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -217,6 +281,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -252,11 +317,16 @@
 			files = (
 				1779551F211E10BC0036B3F9 /* SignUpViewController.swift in Sources */,
 				17795518211D34B40036B3F9 /* MainViewController.swift in Sources */,
+				17F3CF8C2139F74A003D84B6 /* Message.swift in Sources */,
 				172935E62134BDE00071D946 /* GetImageViewController.swift in Sources */,
 				172935ED2134DB8A0071D946 /* ViewController.swift in Sources */,
 				172935E52134BDE00071D946 /* PetsTableViewCell.swift in Sources */,
+				17F3CF8E2139F92F003D84B6 /* ChatTableViewController.swift in Sources */,
+				17F3CF952139FA57003D84B6 /* ChatTableViewCell.swift in Sources */,
 				1779551A211D3E9C0036B3F9 /* ResetViewController.swift in Sources */,
+				170465ED2138B71B00DC9335 /* ProfileViewController.swift in Sources */,
 				1779551D211E0CC40036B3F9 /* User.swift in Sources */,
+				170465EB2138ABAF00DC9335 /* FirebaseFunctions.swift in Sources */,
 				173226E4211741BD00BCA075 /* AppDelegate.swift in Sources */,
 				172935D92134BCC40071D946 /* PetsTableViewController.swift in Sources */,
 				172935EF2134DBF10071D946 /* Pet.swift in Sources */,

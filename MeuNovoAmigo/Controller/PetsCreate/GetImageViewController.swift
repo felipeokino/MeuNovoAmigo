@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseStorage
 
+
 class GetImageViewController: UIViewController, UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
 
@@ -20,20 +21,23 @@ class GetImageViewController: UIViewController, UIImagePickerControllerDelegate,
         if let specie = self.specie.text, let petDescription = self.pet_description.text {
             
             let pet = Pet(species: specie, description: petDescription, owner: (Auth.auth().currentUser?.uid)!)
+//            self.registerInFirebase(pet: pet)
+            _ = FirebaseFunctions()
             self.registerInFirebase(pet: pet)
+            
         }
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     let imagePicker = UIImagePickerController()
     var imageUrl = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         self.imagePicker.delegate = self
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func GetImage(_ sender: Any) {
@@ -57,17 +61,19 @@ class GetImageViewController: UIViewController, UIImagePickerControllerDelegate,
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-
+        
         var selectedImage: UIImage?
-        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            selectedImage = originalImage
-
-        } else if let editedImage = info[UIImagePickerControllerEditedImage] {
+//        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            selectedImage = originalImage
+//
+//        } else
+            if let editedImage = info[UIImagePickerControllerEditedImage] {
             selectedImage = editedImage as? UIImage
         }
         guard (selectedImage?.jpeg(.medium)) != nil else {return}
-
+        
         if let selectedImage = selectedImage {
             petImage.image = selectedImage
         }
@@ -78,7 +84,12 @@ class GetImageViewController: UIViewController, UIImagePickerControllerDelegate,
         }
         dismiss(animated: true, completion: nil)
     }
-
+    
+    // funcao que encerra o teclado quando clicar em qualquer area externa
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     func registerInFirebase(pet: Pet){
         
         let storageRef = Storage.storage().reference().child("pets/" + self.imageUrl)
@@ -87,7 +98,9 @@ class GetImageViewController: UIViewController, UIImagePickerControllerDelegate,
             
             storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
                 if (error != nil) {
-                    print("Deu erro ", error!)
+                    let alert = UIAlertController(title: "Opsss!", message: "Não conseguimos anunciar seu bichinho! Tente novamente mais tarde.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ta bom vai...", style: .default, handler: nil))
+                    self.present(alert, animated: true)
                     return
                 }
                 storageRef.downloadURL(completion: { (url, error) in
@@ -96,10 +109,14 @@ class GetImageViewController: UIViewController, UIImagePickerControllerDelegate,
                     }
                     let a = url?.absoluteURL.absoluteString
                     self.registerNewPet(imageUrl: a!, pet: pet)
-                    print(a)
-                })              
+                })
                 let PetList: UINavigationController = (self.storyboard?.instantiateViewController(withIdentifier: "PetList") as? UINavigationController)!
                 self.present(PetList, animated: true, completion: nil)
+                let alert = UIAlertController(title: "Obaaaa!", message: "O bichinho foi anunciado com sucesso. Logo logo ele terá um novo lar!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Aeeeee", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                
+                
             }
         }
     }
@@ -107,28 +124,15 @@ class GetImageViewController: UIViewController, UIImagePickerControllerDelegate,
     private func registerNewPet(imageUrl: String, pet: Pet){
         print(imageUrl)
         let ref: DatabaseReference!
-                ref = Database.database().reference()
-                ref.child("pets").childByAutoId().setValue([
-                    "specie":pet.species,
-                    "image": imageUrl,
-                    "description": pet.description,
-                    "owner": Auth.auth().currentUser?.uid,
-                    "flag": "new"
-                    ])
+        ref = Database.database().reference()
+        ref.child("pets").childByAutoId().setValue([
+            "specie":pet.species,
+            "image": imageUrl,
+            "description": pet.description,
+            "owner": Auth.auth().currentUser?.uid,
+            "flag": "new"
+            ])
     }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 extension UIImage {
     enum JPEGQuality: CGFloat {
@@ -138,11 +142,8 @@ extension UIImage {
         case high    = 0.75
         case highest = 1
     }
-    
-    /// Returns the data for the specified image in JPEG format.
-    /// If the image object’s underlying image data has been purged, calling this function forces that data to be reloaded into memory.
-    /// - returns: A data object containing the JPEG data, or nil if there was a problem generating the data. This function may return nil if the image has no data or if the underlying CGImageRef contains data in an unsupported bitmap format.
     func jpeg(_ quality: JPEGQuality) -> Data? {
         return UIImageJPEGRepresentation(self, quality.rawValue)
     }
 }
+

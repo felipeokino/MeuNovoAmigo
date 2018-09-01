@@ -11,10 +11,9 @@ import Firebase
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var currentUser: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.currentUser.text = Auth.auth().currentUser?.uid
+//        self.currentUser.text = Auth.auth().currentUser?.uid
         // Do any additional setup after loading the view.
     }
 

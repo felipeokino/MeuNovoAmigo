@@ -40,7 +40,8 @@ class Pet {
             "species": species,
             "description": description,
             "image": image!,
-            "owner": owner
+            "owner": owner,
+            "flag": "new"
         ]
     }
 }
