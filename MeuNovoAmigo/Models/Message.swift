@@ -2,7 +2,7 @@
 //  message.swift
 //  MeuNovoAmigo
 //
-//  Created by Felipe Okino on 31/08/18.
+//  Created by Felipe Okino on 21/09/18.
 //  Copyright © 2018 Felipe Okino. All rights reserved.
 //
 
@@ -10,35 +10,37 @@ import Foundation
 import Firebase
 
 class Message {
-    let owner: String
-    let friend: String
+    let fromId: String
+    let toId: String
     var modifiedHour: String?
-    var messages: Array<String>?
+    let content: String
     
-    init(owner: String, friend: String, modifiedHour: String?) {
-        self.owner = owner
-        self.friend = friend
+    init(fromId: String, toId: String, modifiedHour: String?, content: String) {
+        self.fromId = fromId
+        self.toId = toId
         self.modifiedHour = modifiedHour
+        self.content = content
     }
-
+    
     init?(snapshot: DataSnapshot) {
         guard
             let value = snapshot.value as? [String: AnyObject],
-            let owner = value["owner"] as? String,
-            let friend = value["friend"] as? String,
-            let messages = value["messages"] as? String,
-            let modifiedHour = value["modifiedHour"] as? String else {return nil}
-        self.owner = owner
-        self.friend = friend
+            let fromId = value["fromId"] as? String,
+            let toId = value["toId"] as? String,
+            let content = value["text"] as? String,
+            let modifiedHour = value["timestamp"] as? String else {return nil}
+        self.fromId = fromId
+        self.toId = toId
         self.modifiedHour = modifiedHour
-        self.messages = [messages]
+        self.content = content
     }
     
     func toAnyObject() -> Any {
         return [
-            "owner": owner,
-            "friend": friend,
-            "modifiedHour": modifiedHour
+            "fromId": fromId,
+            "toId": toId,
+            "modifiedHour": modifiedHour,
+            "content": content
         ]
     }
 }

@@ -34,7 +34,12 @@ class Pet {
         self.image = image
         self.owner = owner
     }
-    
+    init?(dictionary: [String:Any]){
+        self.species = dictionary["specie"] as! String
+        self.description = dictionary["description"] as! String
+        self.image = (dictionary["image"] as! String)
+        self.owner = dictionary["owner"] as! String
+    }
     func toAnyObject() -> Any {
         return [
             "species": species,

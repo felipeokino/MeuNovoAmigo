@@ -16,14 +16,27 @@
 		172935EB2134C0E90071D946 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172935E92134C0E90071D946 /* LaunchScreen.storyboard */; };
 		172935ED2134DB8A0071D946 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172935EC2134DB8A0071D946 /* ViewController.swift */; };
 		172935EF2134DBF10071D946 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172935EE2134DBF10071D946 /* Pet.swift */; };
+		172F71AF213BCA9E0049FA60 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F71AE213BCA9E0049FA60 /* MessageViewController.swift */; };
+		172F71B1213BCB090049FA60 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F71B0213BCB090049FA60 /* Constants.swift */; };
+		172F71B3213BD0540049FA60 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F71B2213BD0540049FA60 /* ChatLogController.swift */; };
+		172F71B5213BF3EB0049FA60 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F71B4213BF3EB0049FA60 /* ContactTableViewCell.swift */; };
+		172F71B8213BF5070049FA60 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172F71B7213BF5070049FA60 /* ContactsTableViewController.swift */; };
 		173226E4211741BD00BCA075 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173226E3211741BD00BCA075 /* AppDelegate.swift */; };
 		173226EB211741BF00BCA075 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 173226EA211741BF00BCA075 /* Assets.xcassets */; };
+		17352C642155D15E0041F307 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17352C632155D15E0041F307 /* Message.swift */; };
 		1740B2EC211D29510088597A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1740B2EB211D29510088597A /* GoogleService-Info.plist */; };
+		17451973218136A900EFE897 /* MyPetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17451972218136A900EFE897 /* MyPetTableViewCell.swift */; };
+		174F39EC2162FFA60075E8AB /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174F39EB2162FFA60075E8AB /* MessageView.xib */; };
+		174F39EE216300060075E8AB /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174F39ED216300060075E8AB /* MessageView.swift */; };
+		1764F3972164172700ED385B /* MyPetListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764F3962164172700ED385B /* MyPetListTableViewController.swift */; };
 		17795518211D34B40036B3F9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17795517211D34B40036B3F9 /* MainViewController.swift */; };
 		1779551A211D3E9C0036B3F9 /* ResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17795519211D3E9C0036B3F9 /* ResetViewController.swift */; };
 		1779551D211E0CC40036B3F9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779551C211E0CC40036B3F9 /* User.swift */; };
 		1779551F211E10BC0036B3F9 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1779551E211E10BC0036B3F9 /* SignUpViewController.swift */; };
-		17F3CF8C2139F74A003D84B6 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3CF8B2139F74A003D84B6 /* Message.swift */; };
+		178A4644215C61BF0045C5E9 /* MessagesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A4643215C61BF0045C5E9 /* MessagesTableView.swift */; };
+		178A464A215D31530045C5E9 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A4649215D31530045C5E9 /* FriendTableViewCell.swift */; };
+		178A464C215D31610045C5E9 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178A464B215D31610045C5E9 /* MyTableViewCell.swift */; };
+		17F3CF8C2139F74A003D84B6 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3CF8B2139F74A003D84B6 /* Chat.swift */; };
 		17F3CF8E2139F92F003D84B6 /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3CF8D2139F92F003D84B6 /* ChatTableViewController.swift */; };
 		17F3CF952139FA57003D84B6 /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F3CF942139FA57003D84B6 /* ChatTableViewCell.swift */; };
 		5FA142A889024DDCED736B25 /* Pods_MeuNovoAmigo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 062D4AE00EB4D6847AF26B3E /* Pods_MeuNovoAmigo.framework */; };
@@ -41,16 +54,29 @@
 		172935E92134C0E90071D946 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		172935EC2134DB8A0071D946 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		172935EE2134DBF10071D946 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
+		172F71AE213BCA9E0049FA60 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		172F71B0213BCB090049FA60 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		172F71B2213BD0540049FA60 /* ChatLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		172F71B4213BF3EB0049FA60 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
+		172F71B7213BF5070049FA60 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		173226E0211741BD00BCA075 /* MeuNovoAmigo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeuNovoAmigo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		173226E3211741BD00BCA075 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		173226EA211741BF00BCA075 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		173226EF211741BF00BCA075 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17352C632155D15E0041F307 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		1740B2EB211D29510088597A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		17451972218136A900EFE897 /* MyPetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPetTableViewCell.swift; sourceTree = "<group>"; };
+		174F39EB2162FFA60075E8AB /* MessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
+		174F39ED216300060075E8AB /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		1764F3962164172700ED385B /* MyPetListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPetListTableViewController.swift; sourceTree = "<group>"; };
 		17795517211D34B40036B3F9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		17795519211D3E9C0036B3F9 /* ResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetViewController.swift; sourceTree = "<group>"; };
 		1779551C211E0CC40036B3F9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1779551E211E10BC0036B3F9 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		17F3CF8B2139F74A003D84B6 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		178A4643215C61BF0045C5E9 /* MessagesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableView.swift; sourceTree = "<group>"; };
+		178A4649215D31530045C5E9 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		178A464B215D31610045C5E9 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		17F3CF8B2139F74A003D84B6 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		17F3CF8D2139F92F003D84B6 /* ChatTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
 		17F3CF942139FA57003D84B6 /* ChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
 		B12B765015FD485479D66F1D /* Pods-MeuNovoAmigo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeuNovoAmigo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeuNovoAmigo/Pods-MeuNovoAmigo.release.xcconfig"; sourceTree = "<group>"; };
@@ -72,8 +98,30 @@
 			isa = PBXGroup;
 			children = (
 				170465EA2138ABAF00DC9335 /* FirebaseFunctions.swift */,
+				172F71B0213BCB090049FA60 /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		172F71AD213BCA730049FA60 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				174F39EA2162FF930075E8AB /* teste xib */,
+				172F71AE213BCA9E0049FA60 /* MessageViewController.swift */,
+				172F71B2213BD0540049FA60 /* ChatLogController.swift */,
+				178A4649215D31530045C5E9 /* FriendTableViewCell.swift */,
+				178A464B215D31610045C5E9 /* MyTableViewCell.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		172F71B6213BF4010049FA60 /* ContactsController */ = {
+			isa = PBXGroup;
+			children = (
+				172F71B4213BF3EB0049FA60 /* ContactTableViewCell.swift */,
+				172F71B7213BF5070049FA60 /* ContactsTableViewController.swift */,
+			);
+			path = ContactsController;
 			sourceTree = "<group>";
 		};
 		173226D7211741BD00BCA075 = {
@@ -101,7 +149,7 @@
 				172935E92134C0E90071D946 /* LaunchScreen.storyboard */,
 				172935E82134C0E90071D946 /* Main.storyboard */,
 				1779551B211E0B850036B3F9 /* Models */,
-				17795516211D34920036B3F9 /* Controller */,
+				17795516211D34920036B3F9 /* ViewController */,
 				173226E3211741BD00BCA075 /* AppDelegate.swift */,
 				173226EA211741BF00BCA075 /* Assets.xcassets */,
 				173226EF211741BF00BCA075 /* Info.plist */,
@@ -110,17 +158,45 @@
 			path = MeuNovoAmigo;
 			sourceTree = "<group>";
 		};
-		17795516211D34920036B3F9 /* Controller */ = {
+		174F39EA2162FF930075E8AB /* teste xib */ = {
 			isa = PBXGroup;
 			children = (
-				17F3CF932139F997003D84B6 /* MessagesList */,
+				174F39EB2162FFA60075E8AB /* MessageView.xib */,
+				174F39ED216300060075E8AB /* MessageView.swift */,
+			);
+			path = "teste xib";
+			sourceTree = "<group>";
+		};
+		1764F394216416EE00ED385B /* MyPetList */ = {
+			isa = PBXGroup;
+			children = (
+				1764F3962164172700ED385B /* MyPetListTableViewController.swift */,
+				17451972218136A900EFE897 /* MyPetTableViewCell.swift */,
+			);
+			path = MyPetList;
+			sourceTree = "<group>";
+		};
+		1764F395216416F900ED385B /* OtherPetList */ = {
+			isa = PBXGroup;
+			children = (
+				172935D82134BCC40071D946 /* PetsTableViewController.swift */,
+			);
+			path = OtherPetList;
+			sourceTree = "<group>";
+		};
+		17795516211D34920036B3F9 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				172F71B6213BF4010049FA60 /* ContactsController */,
+				172F71AD213BCA730049FA60 /* Messages */,
+				17F3CF932139F997003D84B6 /* ChatList */,
 				17F3CF922139F986003D84B6 /* UserViews */,
 				17F3CF912139F95F003D84B6 /* InitialPages */,
 				17F3CF902139F951003D84B6 /* PetsCreate */,
 				17F3CF8F2139F93D003D84B6 /* PetsList */,
 				17795517211D34B40036B3F9 /* MainViewController.swift */,
 			);
-			path = Controller;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		1779551B211E0B850036B3F9 /* Models */ = {
@@ -128,7 +204,8 @@
 			children = (
 				1779551C211E0CC40036B3F9 /* User.swift */,
 				172935EE2134DBF10071D946 /* Pet.swift */,
-				17F3CF8B2139F74A003D84B6 /* Message.swift */,
+				17F3CF8B2139F74A003D84B6 /* Chat.swift */,
+				17352C632155D15E0041F307 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -137,7 +214,8 @@
 			isa = PBXGroup;
 			children = (
 				172935E02134BDDF0071D946 /* PetsTableViewCell.swift */,
-				172935D82134BCC40071D946 /* PetsTableViewController.swift */,
+				1764F395216416F900ED385B /* OtherPetList */,
+				1764F394216416EE00ED385B /* MyPetList */,
 			);
 			path = PetsList;
 			sourceTree = "<group>";
@@ -168,13 +246,14 @@
 			path = UserViews;
 			sourceTree = "<group>";
 		};
-		17F3CF932139F997003D84B6 /* MessagesList */ = {
+		17F3CF932139F997003D84B6 /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
 				17F3CF8D2139F92F003D84B6 /* ChatTableViewController.swift */,
 				17F3CF942139FA57003D84B6 /* ChatTableViewCell.swift */,
+				178A4643215C61BF0045C5E9 /* MessagesTableView.swift */,
 			);
-			path = MessagesList;
+			path = ChatList;
 			sourceTree = "<group>";
 		};
 		6B41E156F21D66BD76333BB3 /* Pods */ = {
@@ -256,6 +335,7 @@
 			files = (
 				172935EA2134C0E90071D946 /* Main.storyboard in Resources */,
 				1740B2EC211D29510088597A /* GoogleService-Info.plist in Resources */,
+				174F39EC2162FFA60075E8AB /* MessageView.xib in Resources */,
 				172935EB2134C0E90071D946 /* LaunchScreen.storyboard in Resources */,
 				173226EB211741BF00BCA075 /* Assets.xcassets in Resources */,
 			);
@@ -271,17 +351,31 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MeuNovoAmigo/Pods-MeuNovoAmigo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -315,21 +409,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172F71B3213BD0540049FA60 /* ChatLogController.swift in Sources */,
+				17451973218136A900EFE897 /* MyPetTableViewCell.swift in Sources */,
 				1779551F211E10BC0036B3F9 /* SignUpViewController.swift in Sources */,
+				172F71B8213BF5070049FA60 /* ContactsTableViewController.swift in Sources */,
+				172F71B1213BCB090049FA60 /* Constants.swift in Sources */,
 				17795518211D34B40036B3F9 /* MainViewController.swift in Sources */,
-				17F3CF8C2139F74A003D84B6 /* Message.swift in Sources */,
+				17F3CF8C2139F74A003D84B6 /* Chat.swift in Sources */,
+				17352C642155D15E0041F307 /* Message.swift in Sources */,
+				172F71B5213BF3EB0049FA60 /* ContactTableViewCell.swift in Sources */,
 				172935E62134BDE00071D946 /* GetImageViewController.swift in Sources */,
+				178A4644215C61BF0045C5E9 /* MessagesTableView.swift in Sources */,
 				172935ED2134DB8A0071D946 /* ViewController.swift in Sources */,
 				172935E52134BDE00071D946 /* PetsTableViewCell.swift in Sources */,
 				17F3CF8E2139F92F003D84B6 /* ChatTableViewController.swift in Sources */,
 				17F3CF952139FA57003D84B6 /* ChatTableViewCell.swift in Sources */,
 				1779551A211D3E9C0036B3F9 /* ResetViewController.swift in Sources */,
+				178A464A215D31530045C5E9 /* FriendTableViewCell.swift in Sources */,
 				170465ED2138B71B00DC9335 /* ProfileViewController.swift in Sources */,
+				172F71AF213BCA9E0049FA60 /* MessageViewController.swift in Sources */,
+				178A464C215D31610045C5E9 /* MyTableViewCell.swift in Sources */,
 				1779551D211E0CC40036B3F9 /* User.swift in Sources */,
 				170465EB2138ABAF00DC9335 /* FirebaseFunctions.swift in Sources */,
+				1764F3972164172700ED385B /* MyPetListTableViewController.swift in Sources */,
 				173226E4211741BD00BCA075 /* AppDelegate.swift in Sources */,
 				172935D92134BCC40071D946 /* PetsTableViewController.swift in Sources */,
 				172935EF2134DBF10071D946 /* Pet.swift in Sources */,
+				174F39EE216300060075E8AB /* MessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
