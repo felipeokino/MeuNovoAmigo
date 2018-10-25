@@ -7,9 +7,12 @@ target 'MeuNovoAmigo' do
 
   # Pods for MeuNovoAmigo
     pod 'Firebase'
+    pod 'Firebase/Firestore'
+
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
-    
+    pod 'IQKeyboardManager'
+
     pod 'Kingfisher', '~> 4.0'
 end

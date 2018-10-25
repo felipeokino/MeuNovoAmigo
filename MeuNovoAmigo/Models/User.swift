@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 class User {
+    let id: String?
     let name: String
     let cpf: String
     let state: String
@@ -17,7 +18,8 @@ class User {
     let email: String
     var image: String?
     
-    init(name: String, cpf: String, state: String, city: String, email: String){
+    init(id: String?, name: String, cpf: String, state: String, city: String, email: String){
+        self.id = id
         self.name = name
         self.cpf = cpf
         self.state = state
@@ -27,6 +29,7 @@ class User {
     init?(snapshot: DataSnapshot) {
         guard
             let value = snapshot.value as? [String: AnyObject],
+            let id = value["id"] as? String?,
             let name = value["name"] as? String,
             let cpf = value["cpf"] as? String,
             let state = value["state"] as? String,
@@ -35,6 +38,7 @@ class User {
             let city = value["city"] as? String else {
                 return nil
         }
+        self.id = id
         self.name = name
         self.cpf = cpf
         self.state = state
