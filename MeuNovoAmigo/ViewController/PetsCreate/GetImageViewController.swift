@@ -57,7 +57,7 @@ class GetImageViewController: UIViewController, UIImagePickerControllerDelegate,
             imagePicker.allowsEditing = true
             
             self.present(imagePicker, animated: true, completion: nil)
-        }
+    }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

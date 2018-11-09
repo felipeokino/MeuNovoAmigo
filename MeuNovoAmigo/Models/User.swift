@@ -10,40 +10,73 @@ import Foundation
 import Firebase
 
 class User {
-    let id: String?
-    let name: String
-    let cpf: String
-    let state: String
-    let city: String
-    let email: String
+    
+    private static var info: User?
+    
+    class func sharedUserInfo() -> User
+    {
+        if self.info == nil
+        {
+            self.info = User()
+        }
+        
+        return self.info!
+    }
+    
+    var name: String?
+//    let birth: String
+    var state: String?
+    var city: String?
+    var email: String?
     var image: String?
     
-    init(id: String?, name: String, cpf: String, state: String, city: String, email: String){
-        self.id = id
+    init(){}
+    
+    init?(name: String, state: String, city: String, email: String){
         self.name = name
-        self.cpf = cpf
+//        self.birth = birth
         self.state = state
         self.city = city
         self.email = email
     }
+    init?(name: String, email: String, image: String){
+        self.name = name
+        self.image = image
+        self.email = email
+    }
+    init?(dictionary: [String:Any]){
+        self.name = dictionary["name"] as? String
+//        self.birth = dictionary["birth"] as! String
+        self.state = (dictionary["state"] as! String)
+        self.email = dictionary["email"] as? String
+        self.image = (dictionary["image"] as! String)
+        self.city = dictionary["city"] as? String
+    }
     init?(snapshot: DataSnapshot) {
         guard
             let value = snapshot.value as? [String: AnyObject],
-            let id = value["id"] as? String?,
             let name = value["name"] as? String,
-            let cpf = value["cpf"] as? String,
+//            let birth = value["birth"] as? String,
             let state = value["state"] as? String,
             let email = value["email"] as? String,
             let image = value["image"] as? String,
             let city = value["city"] as? String else {
                 return nil
         }
-        self.id = id
         self.name = name
-        self.cpf = cpf
+//        self.birth = birth
         self.state = state
         self.city = city
         self.email = email
         self.image = image
+    }
+    func toAnyObject() -> Any {
+        return [
+            "name": name,
+            "state": state,
+            "email": email,
+            "image": image,
+            "city": city
+        ]
     }
 }

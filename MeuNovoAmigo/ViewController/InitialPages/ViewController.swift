@@ -19,6 +19,7 @@ class ViewController: UIViewController {
                     print(error.localizedDescription)
                     return
                 }
+                self.getUser()
                 let PetList: UITabBarController = (self.storyboard?.instantiateViewController(withIdentifier: "PetList") as? UITabBarController)!
                 self.present(PetList, animated: true, completion: nil)
             }
@@ -32,11 +33,31 @@ class ViewController: UIViewController {
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if auth.currentUser != nil {
+                self.getUser()
+
                 let PetList: UITabBarController = (self.storyboard?.instantiateViewController(withIdentifier: "PetList") as? UITabBarController)!
                 self.present(PetList, animated: true, completion: nil)
             }
         }
     }
+    func getUser() {
+        let ref = Firestore.firestore().collection("users")
+        ref.addSnapshotListener(includeMetadataChanges: false) { (Snapshot, Error) in
+            if (Error != nil){
+                print(Error as Any)
+                return
+            }
+            let user = User(dictionary: (Snapshot?.documents[0].data())!)!
+            let test = User.sharedUserInfo()
+            test.name = user.name
+            test.image = user.image
+            test.email = user.email
+            
+            print("\n\n\(test)\n\n")
+        }
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

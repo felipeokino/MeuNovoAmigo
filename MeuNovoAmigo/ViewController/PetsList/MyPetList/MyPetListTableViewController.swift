@@ -41,9 +41,12 @@ class MyPetListTableViewController: UITableViewController {
         cell.petDescription.text = pet.species + " " + pet.description
         cell.userAdress.text = "Rua Costa do Sol 980"
         cell.userPhone.text = "(16) 997198406"
-        cell.userImage.image = UIImage(named: "perfil")
         cell.userName.text = "Felipe Okino"
         
+        if let userImageUrl = User.sharedUserInfo().image {
+            let url = URL(string: userImageUrl)
+            cell.userImage.kf.setImage(with: url)
+        }
         if let petImageUrl = pet.image {
             let url = URL(string: petImageUrl)
             cell.petImage.kf.setImage(with: url)
