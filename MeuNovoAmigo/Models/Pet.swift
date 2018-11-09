@@ -14,6 +14,7 @@ class Pet {
     let description: String
     var image: String?
     let owner: String
+    var ownerImage: String?
     
     init(species: String, description: String, owner: String) {
         self.species = species
@@ -39,6 +40,7 @@ class Pet {
         self.description = dictionary["description"] as! String
         self.image = (dictionary["image"] as! String)
         self.owner = dictionary["owner"] as! String
+        self.ownerImage = dictionary["ownerImage"] as? String
     }
     func toAnyObject() -> Any {
         return [

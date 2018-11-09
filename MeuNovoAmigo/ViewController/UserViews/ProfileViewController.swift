@@ -8,29 +8,37 @@
 
 import UIKit
 import Firebase
+import Kingfisher
 
 class ProfileViewController: UIViewController {
     
     let imagePicker = UIImagePickerController()
     var imageUrl = ""
+    var user:User!
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userEmail: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadInfos()
+        self.loadInfos()
     }
 
     func loadInfos() {
-        let fireUtils = FirebaseUtil()
-        self.profileImage.image = UIImage(named: "empty_user")
-        self.userName.text = fireUtils.getUserName()
-        self.userEmail.text = fireUtils.getUserEmail()
+        self.userName.text = User.sharedUserInfo().name
+        self.userEmail.text = User.sharedUserInfo().email
+        
+        if let userImage = User.sharedUserInfo().image {
+            let url = URL(string: userImage)
+            self.profileImage.kf.setImage(with: url)
+//            cell.petImage.kf.setImage(with: url)
+        }
+        print("\n\n\n\(User.sharedUserInfo().name)\n\n\n\n")
+        
     }
+    
+
 //    override func didReceiveMemoryWarning() {
 //        super.didReceiveMemoryWarning()
 //        // Dispose of any resources that can be recreated.

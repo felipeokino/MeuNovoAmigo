@@ -48,12 +48,17 @@ class PetsTableViewController: UITableViewController {
         cell.userPhoto.image = #imageLiteral(resourceName: "perfil")
         cell.username.text = "Felipe Okino"
 
+        if let ownerImageUrl = pet.ownerImage {
+            let url = URL(string: ownerImageUrl)
+            cell.userPhoto.kf.setImage(with: url)
+        }
+        
         if let petImageUrl = pet.image {
             let url = URL(string: petImageUrl)
             cell.petImage.kf.setImage(with: url)
         }
+        
         cell.selectionStyle = UITableViewCellSelectionStyle.none
-
         return cell
     }
     

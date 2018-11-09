@@ -16,7 +16,7 @@ class FirebaseUtil {
     }
     var db = Firestore.firestore()
     var pets:[Pet] = []
-
+    
     func registerInFirebase(pet: Pet, imageUrl: String, petImage: UIImageView, _self: UIViewController) {
         let storageRef = Storage.storage().reference().child("pets/" + imageUrl)
         if let uploadData = UIImageJPEGRepresentation(petImage.image!, 0.2){
@@ -52,6 +52,7 @@ class FirebaseUtil {
             "image": imageUrl,
             "description": pet.description,
             "owner": Auth.auth().currentUser?.uid as Any,
+            "ownerImage": User.sharedUserInfo().image!
             ])
     }
     
@@ -96,5 +97,57 @@ class FirebaseUtil {
     
     func getUserName() -> String {
         return "Felipe Okino"
+    }
+    
+    func registerUserInFirebase(user: [String: Any], imageUrl: String, userImage: UIImageView, _self: UIViewController) {
+        
+        let storageRef = Storage.storage().reference().child("profile/" + imageUrl)
+        
+        if let uploadData = UIImageJPEGRepresentation(userImage.image!, 0.2){
+            
+            storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                
+                if (error != nil) {
+                    let alert = UIAlertController(title: "Opsss!", message: "Não conseguimos te cadastrar! Tente novamente mais tarde.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    _self.present(alert, animated: true)
+                    print(error!)
+                    
+                    return
+                
+                } else {
+                    
+                    storageRef.downloadURL(completion: { (url, error) in
+                        if (error != nil){
+                            print("An Error Ocurred ", error!)
+                        }
+                        let a = url?.absoluteURL.absoluteString
+                        
+                        self.registerNewUser(imageUrl: a!, user: user)
+                        
+                        let alert = UIAlertController(title: "Olaaaa!", message: "Bem vindo à nossa comunidade!", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Aeee", style: .default, handler: { (action) in
+                            let PetList: UITabBarController = (_self.storyboard?.instantiateViewController(withIdentifier: "PetList") as? UITabBarController)!
+                            _self.present(PetList, animated: true, completion: nil)
+                        }))
+                        _self.present(alert, animated: true)
+                    })
+                }
+            }
+        }
+    }
+    
+    func registerNewUser(imageUrl: String, user: [String: Any]){
+        let ref = db.collection("users").document()
+        
+        ref.setData([
+            "name": user["name"] as Any,
+            "birth": user["birth"] as Any,
+            "city": user["city"] as Any,
+            "state": user["state"] as Any,
+            "image": imageUrl,
+            "email": user["email"] as Any,
+            "id": ref.documentID
+        ])
     }
 }

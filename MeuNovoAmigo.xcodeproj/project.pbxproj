@@ -26,6 +26,9 @@
 		17352C642155D15E0041F307 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17352C632155D15E0041F307 /* Message.swift */; };
 		1740B2EC211D29510088597A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1740B2EB211D29510088597A /* GoogleService-Info.plist */; };
 		17451973218136A900EFE897 /* MyPetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17451972218136A900EFE897 /* MyPetTableViewCell.swift */; };
+		17451977218221BD00EFE897 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17451976218221BD00EFE897 /* WelcomeViewController.swift */; };
+		1745197B2182229600EFE897 /* BasicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745197A2182229600EFE897 /* BasicViewController.swift */; };
+		1745197D218222B600EFE897 /* SignProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1745197C218222B600EFE897 /* SignProfileViewController.swift */; };
 		174F39EC2162FFA60075E8AB /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 174F39EB2162FFA60075E8AB /* MessageView.xib */; };
 		174F39EE216300060075E8AB /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174F39ED216300060075E8AB /* MessageView.swift */; };
 		1764F3972164172700ED385B /* MyPetListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1764F3962164172700ED385B /* MyPetListTableViewController.swift */; };
@@ -66,6 +69,9 @@
 		17352C632155D15E0041F307 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		1740B2EB211D29510088597A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17451972218136A900EFE897 /* MyPetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPetTableViewCell.swift; sourceTree = "<group>"; };
+		17451976218221BD00EFE897 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		1745197A2182229600EFE897 /* BasicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewController.swift; sourceTree = "<group>"; };
+		1745197C218222B600EFE897 /* SignProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignProfileViewController.swift; sourceTree = "<group>"; };
 		174F39EB2162FFA60075E8AB /* MessageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
 		174F39ED216300060075E8AB /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		1764F3962164172700ED385B /* MyPetListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPetListTableViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +164,40 @@
 			path = MeuNovoAmigo;
 			sourceTree = "<group>";
 		};
+		174519742182218500EFE897 /* SignUpScreen */ = {
+			isa = PBXGroup;
+			children = (
+				174519792182228500EFE897 /* 3screen */,
+				174519782182227B00EFE897 /* 2screen */,
+				174519752182219500EFE897 /* 1screen */,
+			);
+			path = SignUpScreen;
+			sourceTree = "<group>";
+		};
+		174519752182219500EFE897 /* 1screen */ = {
+			isa = PBXGroup;
+			children = (
+				17451976218221BD00EFE897 /* WelcomeViewController.swift */,
+			);
+			path = 1screen;
+			sourceTree = "<group>";
+		};
+		174519782182227B00EFE897 /* 2screen */ = {
+			isa = PBXGroup;
+			children = (
+				1745197A2182229600EFE897 /* BasicViewController.swift */,
+			);
+			path = 2screen;
+			sourceTree = "<group>";
+		};
+		174519792182228500EFE897 /* 3screen */ = {
+			isa = PBXGroup;
+			children = (
+				1745197C218222B600EFE897 /* SignProfileViewController.swift */,
+			);
+			path = 3screen;
+			sourceTree = "<group>";
+		};
 		174F39EA2162FF930075E8AB /* teste xib */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +219,7 @@
 		1764F395216416F900ED385B /* OtherPetList */ = {
 			isa = PBXGroup;
 			children = (
+				172935E02134BDDF0071D946 /* PetsTableViewCell.swift */,
 				172935D82134BCC40071D946 /* PetsTableViewController.swift */,
 			);
 			path = OtherPetList;
@@ -187,6 +228,7 @@
 		17795516211D34920036B3F9 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				174519742182218500EFE897 /* SignUpScreen */,
 				172F71B6213BF4010049FA60 /* ContactsController */,
 				172F71AD213BCA730049FA60 /* Messages */,
 				17F3CF932139F997003D84B6 /* ChatList */,
@@ -213,7 +255,6 @@
 		17F3CF8F2139F93D003D84B6 /* PetsList */ = {
 			isa = PBXGroup;
 			children = (
-				172935E02134BDDF0071D946 /* PetsTableViewCell.swift */,
 				1764F395216416F900ED385B /* OtherPetList */,
 				1764F394216416EE00ED385B /* MyPetList */,
 			);
@@ -422,7 +463,9 @@
 				178A4644215C61BF0045C5E9 /* MessagesTableView.swift in Sources */,
 				172935ED2134DB8A0071D946 /* ViewController.swift in Sources */,
 				172935E52134BDE00071D946 /* PetsTableViewCell.swift in Sources */,
+				17451977218221BD00EFE897 /* WelcomeViewController.swift in Sources */,
 				17F3CF8E2139F92F003D84B6 /* ChatTableViewController.swift in Sources */,
+				1745197D218222B600EFE897 /* SignProfileViewController.swift in Sources */,
 				17F3CF952139FA57003D84B6 /* ChatTableViewCell.swift in Sources */,
 				1779551A211D3E9C0036B3F9 /* ResetViewController.swift in Sources */,
 				178A464A215D31530045C5E9 /* FriendTableViewCell.swift in Sources */,
@@ -434,6 +477,7 @@
 				1764F3972164172700ED385B /* MyPetListTableViewController.swift in Sources */,
 				173226E4211741BD00BCA075 /* AppDelegate.swift in Sources */,
 				172935D92134BCC40071D946 /* PetsTableViewController.swift in Sources */,
+				1745197B2182229600EFE897 /* BasicViewController.swift in Sources */,
 				172935EF2134DBF10071D946 /* Pet.swift in Sources */,
 				174F39EE216300060075E8AB /* MessageView.swift in Sources */,
 			);
