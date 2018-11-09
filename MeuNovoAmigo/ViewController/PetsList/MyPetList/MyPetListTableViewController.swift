@@ -17,10 +17,6 @@ class MyPetListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getMyPets()
-        
-//        let fireUtil = FirebaseUtil()
-//        pets = fireUtil.fetchAllPets()
-        
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -30,7 +26,6 @@ class MyPetListTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pets.count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let pet: Pet = pets[indexPath.row]
@@ -47,6 +42,7 @@ class MyPetListTableViewController: UITableViewController {
             let url = URL(string: userImageUrl)
             cell.userImage.kf.setImage(with: url)
         }
+        
         if let petImageUrl = pet.image {
             let url = URL(string: petImageUrl)
             cell.petImage.kf.setImage(with: url)
