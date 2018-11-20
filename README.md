@@ -1,1 +1,1 @@
-# MeuNovoAmigo1.0
+# MeuNovoAmigo v0.2
