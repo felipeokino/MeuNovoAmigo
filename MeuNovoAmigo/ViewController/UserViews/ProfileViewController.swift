@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadInfos()
+        
     }
 
     func loadInfos() {
@@ -32,27 +33,19 @@ class ProfileViewController: UIViewController {
         if let userImage = User.sharedUserInfo().image {
             let url = URL(string: userImage)
             self.profileImage.kf.setImage(with: url)
-//            cell.petImage.kf.setImage(with: url)
         }
-        print("\n\n\n\(User.sharedUserInfo().name)\n\n\n\n")
-        
     }
-    
-
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        self.imagePicker.delegate = self
-//        // Do any additional setup after loading the view.
-//    }
 
     @IBAction func logoutBtn(_ sender: Any) {
         do {
             try Auth.auth().signOut()
+            
+            let test = User.sharedUserInfo()
+            test.name = ""
+            test.image = ""
+            test.email = ""
+            test.id = ""
+            
             let ViewController: UIViewController = (self.storyboard?.instantiateViewController(withIdentifier: "loginView") as? ViewController)!
             self.present(ViewController, animated: true, completion: nil)
         } catch let error {
