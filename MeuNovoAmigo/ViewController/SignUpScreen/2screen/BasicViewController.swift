@@ -21,9 +21,7 @@ class BasicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         header.text = "Olá, \(userName.components(separatedBy: " ")[0].capitalizingFirstLetter())"
-        
     }
     
     @IBAction func birthPicker(_ sender: Any) {
@@ -36,15 +34,13 @@ class BasicViewController: UIViewController {
     
     @IBAction func nextPage(_ sender: Any) {
             if (cityName.text != "" && stateName.text != "" && phoneNumber.text != "") {
-                if let cityName = cityName.text, let stateName = stateName.text, let phone = phoneNumber.text {
-
                     let ViewController: SignProfileViewController = (self.storyboard?.instantiateViewController(withIdentifier: "imageScreen") as? SignProfileViewController)!
                     
                     ViewController.name = self.userName
                     ViewController.birth = self.birthDate
-                    ViewController.city = cityName
-                    ViewController.state = stateName
-                    ViewController.phone = phone
+                    ViewController.city = self.cityName.text
+                    ViewController.state = self.stateName.text
+                    ViewController.phone = self.phoneNumber.text
                     
                     self.present(ViewController, animated: true, completion: nil)
                 }
@@ -55,14 +51,4 @@ class BasicViewController: UIViewController {
         }
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

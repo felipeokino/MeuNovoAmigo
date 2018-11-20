@@ -10,11 +10,15 @@ import Foundation
 import UIKit
 import Firebase
 class Pet {
-    let species: String
-    let description: String
+    var species: String?
+    let description: String?
     var image: String?
-    let owner: String
+    let owner: String?
     var ownerImage: String?
+    var ownerCity: String?
+    var ownerName:String?
+    var ownerPhone:String?
+    var id: String?
     
     init(species: String, description: String, owner: String) {
         self.species = species
@@ -36,11 +40,15 @@ class Pet {
         self.owner = owner
     }
     init?(dictionary: [String:Any]){
-        self.species = dictionary["specie"] as! String
-        self.description = dictionary["description"] as! String
-        self.image = (dictionary["image"] as! String)
-        self.owner = dictionary["owner"] as! String
+        self.species = dictionary["specie"] as? String
+        self.description = dictionary["description"] as? String
+        self.image = (dictionary["image"] as? String)
+        self.owner = dictionary["owner"] as? String
         self.ownerImage = dictionary["ownerImage"] as? String
+        self.ownerName = dictionary["ownerName"] as? String
+        self.ownerCity = dictionary["ownerCity"] as? String
+        self.ownerPhone = dictionary["ownerPhone"] as? String
+        self.id = dictionary["id"] as? String
     }
     func toAnyObject() -> Any {
         return [

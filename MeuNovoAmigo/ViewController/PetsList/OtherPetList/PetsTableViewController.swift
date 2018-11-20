@@ -12,6 +12,9 @@ import Kingfisher
 
 class PetsTableViewController: UITableViewController {
 
+    @IBAction func reloadButton(_ sender: Any) {
+        self.getAllPets()
+    }
     var pets: [Pet] = []
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,18 +38,17 @@ class PetsTableViewController: UITableViewController {
         return pets.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let pet: Pet = pets[indexPath.row]
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "petCell", for: indexPath) as! PetsTableViewCell
         
         cell.petImage.image = UIImage(named: "load")
-        cell.petDescription.text = pet.species + " " + pet.description
-        cell.address.text = "Rua Costa do Sol 980"
-        cell.phoneNumber.text = "(16) 997198406"
+        cell.petDescription.text = pet.species! + " " + pet.description!
+        
         cell.userPhoto.image = #imageLiteral(resourceName: "perfil")
-        cell.username.text = "Felipe Okino"
+        cell.phoneNumber.text = "16 997198406"
+        cell.address.text = pet.ownerCity
+        cell.username.text = pet.ownerName
 
         if let ownerImageUrl = pet.ownerImage {
             let url = URL(string: ownerImageUrl)
@@ -67,7 +69,7 @@ class PetsTableViewController: UITableViewController {
     }
     func getAllPets(){
         let db = Firestore.firestore()
-        let books = db.collection("Pets")
+        let books = db.collection("Pets").whereField("deleted", isEqualTo: false)
         books.addSnapshotListener { (snapshot, Error) in
             if let error = Error {
                 print(error.localizedDescription)
@@ -77,10 +79,23 @@ class PetsTableViewController: UITableViewController {
                 self.pets = []
                 for doc in snapshot!.documents {
                     let pet:Pet = Pet(dictionary: doc.data())!
+                    
                     self.pets.append(pet)
                 }
             }
             self.tableView.reloadData()
         }
+    }
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let pet = self.pets[indexPath.row]
+        
+        let like = UITableViewRowAction(style: .normal, title: "Ligar", handler: { (action, index) in
+            let url = URL(string: "tel://\(pet.ownerPhone!)")
+            UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+        })
+        
+        like.backgroundColor = UIColor(red: 0, green: 1, blue: 153/255, alpha: 0.7)
+
+        return [like]
     }
 }

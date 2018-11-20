@@ -31,12 +31,13 @@ class MyPetListTableViewController: UITableViewController {
         let pet: Pet = pets[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyPetCell", for: indexPath) as! MyPetTableViewCell
+        let user = User.sharedUserInfo()
         
         cell.petImage.image = UIImage(named: "load")
-        cell.petDescription.text = pet.species + " " + pet.description
-        cell.userAdress.text = "Rua Costa do Sol 980"
+        cell.petDescription.text = pet.species! + " " + pet.description!
+        cell.userAdress.text = user.state
         cell.userPhone.text = "(16) 997198406"
-        cell.userName.text = "Felipe Okino"
+        cell.userName.text = user.name
         
         if let userImageUrl = User.sharedUserInfo().image {
             let url = URL(string: userImageUrl)
@@ -57,7 +58,9 @@ class MyPetListTableViewController: UITableViewController {
 
     func getMyPets(){
         let db = Firestore.firestore()
-        let books = db.collection("Pets").whereField("owner", isEqualTo: Auth.auth().currentUser?.uid as Any)
+        let use = User.sharedUserInfo()
+        
+        let books = db.collection("Pets").whereField("owner", isEqualTo: use.id as Any).whereField("deleted", isEqualTo: false)
         books.addSnapshotListener { (snapshot, Error) in
             if let error = Error {
                 print(error.localizedDescription)
@@ -69,6 +72,13 @@ class MyPetListTableViewController: UITableViewController {
                         self.pets.append(pet)
                 }
             self.tableView.reloadData()
+        }
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let fire = FirebaseUtil()
+            let pet = self.pets[indexPath.row]
+            fire.deletePet(pet: pet)
         }
     }
 }

@@ -71,16 +71,25 @@ class SignProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func register(_ sender: Any) {
         self.registerUser()
     }
+    
     func registerUser() {
         if (email.text != "" && password.text != ""){
-            if let email = email.text, let password = password.text {
-                 let fireUtil = FirebaseUtil()
-                Auth.auth().createUser(withEmail: email, password: password, completion: nil)
+             let fireUtil = FirebaseUtil()
+            Auth.auth().createUser(withEmail: email.text!, password: password.text!) { (res, Error) in
+                if (Error != nil){
+                    let alert = UIAlertController(title: "Opsss!", message: "Erro ao realizar o seu cadastro, tente novamente mais tarde", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true)
+                }
                 let user = ["name": self.name, "birth": self.birth, "state": self.state
-                    , "city": self.city, "email": email]
+                    , "city": self.city, "email": self.email.text!, "phoneNumber": self.phone] as [String : Any]
                 
                 fireUtil.registerUserInFirebase(user: user as [String : Any], imageUrl: self.imageUrl, userImage: self.userImage, _self: self)
             }
+        } else {
+            let alert = UIAlertController(title: "Opsss!", message: "Nos conte o seu email e escreva uma senha =(", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
     }
 }

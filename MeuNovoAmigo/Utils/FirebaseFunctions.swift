@@ -47,13 +47,27 @@ class FirebaseUtil {
     }
     
     func registerNewPet(imageUrl: String, pet: Pet){
-        db.collection("Pets").addDocument(data: [
-            "specie":pet.species,
-            "image": imageUrl,
-            "description": pet.description,
-            "owner": Auth.auth().currentUser?.uid as Any,
-            "ownerImage": User.sharedUserInfo().image!
+        let user = User.sharedUserInfo()
+        let ref = db.collection("Pets").document()
+        ref.setData(
+            [
+                "specie":pet.species as Any,
+                "image": imageUrl,
+                "description": pet.description as Any,
+                "owner": user.id as Any,
+                "ownerImage": User.sharedUserInfo().image!,
+                "ownerName": User.sharedUserInfo().name!,
+                "ownerCity": User.sharedUserInfo().city!,
+                "ownerState": User.sharedUserInfo().state!,
+                "ownerPhone": User.sharedUserInfo().phoneNumber!,
+                "id": ref.documentID,
+                "deleted": false
             ])
+    }
+    
+    func deletePet(pet: Pet){
+        db.collection("Pets").document(pet.id!).delete()
+//        ref.setData(["deleted": true])
     }
     
     func fetchAllPets() -> Array<Pet>{

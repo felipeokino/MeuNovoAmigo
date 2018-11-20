@@ -24,11 +24,13 @@ class User {
     }
     
     var name: String?
-//    let birth: String
+    var birth: String?
     var state: String?
     var city: String?
     var email: String?
     var image: String?
+    var id: String?
+    var phoneNumber: String?
     
     init(){}
     
@@ -46,11 +48,13 @@ class User {
     }
     init?(dictionary: [String:Any]){
         self.name = dictionary["name"] as? String
-//        self.birth = dictionary["birth"] as! String
-        self.state = (dictionary["state"] as! String)
+        self.birth = dictionary["birth"] as! String
+        self.state = (dictionary["state"] as? String)
         self.email = dictionary["email"] as? String
-        self.image = (dictionary["image"] as! String)
+        self.image = (dictionary["image"] as? String)
         self.city = dictionary["city"] as? String
+        self.phoneNumber = dictionary["phoneNumber"] as? String
+        self.id = dictionary["id"] as? String
     }
     init?(snapshot: DataSnapshot) {
         guard
